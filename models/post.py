@@ -1,0 +1,3 @@
+'''
+Blog post DB model
+'''
