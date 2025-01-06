@@ -1,10 +1,13 @@
 from flask import Flask, render_template
 from routes.user_bp import *
+from routes.blog_bp import *
+
 
 app = Flask(__name__)
 
 # blueprints
-app.register_blueprint(user_bp, url_prefix='/users')
+app.register_blueprint(user_bp, url_prefix='/user')
+app.register_blueprint(blog_bp, url_prefix='/blog')
 
 # app routes
 @app.route('/')
