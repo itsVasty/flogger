@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from routes.user_bp import *
 from routes.blog_bp import *
 
-
+# app init
 app = Flask(__name__)
 
 # blueprints
