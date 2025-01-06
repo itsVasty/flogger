@@ -13,7 +13,7 @@ app.register_blueprint(blog_bp, url_prefix='/blog')
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Home"
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run()
