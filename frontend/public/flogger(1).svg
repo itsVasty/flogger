@@ -1,0 +1,13 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700');
+    .text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 160px;
+      font-weight: bold;
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
+  </style>
+  <text x="50%" y="55%" class="text" fill="#0A8754">F</text>
+</svg>

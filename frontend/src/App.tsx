@@ -1,16 +1,36 @@
+import { useEffect, useState } from 'react';
 import './App.css'
+import { BlogPost } from './models';
+import Post from './components/Post';
 
 function App() {
-  fetch('http://localhost:8000/')
-    .then(response => response.json())
-    .then(data => console.log(data.message))
-    .catch(error => console.error('Error fetching tasks:', error));
+  const [posts, setPosts] = useState([]);
 
-return (
-  <>
-    <h1>Flogger</h1>
-  </>
-)
-}
+  const getPosts = () => {
+    fetch('http://localhost:8000/')
+      .then(response => response.json())
+      .then(data => setPosts(data.posts))
+      .catch(error => console.error('Error fetching posts:', error));
+  };
 
-export default App
+  useEffect(getPosts, [])
+  console.log(posts);
+
+  return (
+    <>
+      <header>
+        <h1>Flogger™</h1>
+      </header>
+      <main>
+        <div>
+          {posts.map((post: BlogPost) => (
+            <Post post={post} />
+          ))}
+        </div>
+      </main>
+
+    </>
+  );
+};
+
+export default App;
