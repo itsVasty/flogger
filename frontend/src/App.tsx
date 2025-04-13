@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import { BlogPost } from './models';
-import Post from './components/Post';
+import PostsPage from './components/Pages/PostsPage';
+import HomePage from './components/Pages/HomePage';
 
-function App() {
+function App({ page }: { page: string }) {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    fetch('http://localhost:8000/')
+    fetch('http://localhost:8000/posts')
       .then(response => response.json())
       .then(data => setPosts(data.posts))
       .catch(error => console.error('Error fetching posts:', error));
   };
 
   useEffect(getPosts, [])
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <>
@@ -22,11 +22,9 @@ function App() {
         <h1>Flogger™</h1>
       </header>
       <main>
-        <div>
-          {posts.map((post: BlogPost) => (
-            <Post post={post} />
-          ))}
-        </div>
+        {page === 'home' && <HomePage/>}
+        {page === 'posts' && <PostsPage posts={posts}/>
+        }
       </main>
 
     </>
