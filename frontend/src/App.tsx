@@ -4,7 +4,7 @@ import PostsPage from './components/Pages/PostsPage';
 import HomePage from './components/Pages/HomePage';
 
 function App({ page }: { page: string }) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(Object);
 
   const getPosts = () => {
     fetch('http://localhost:8000/posts')

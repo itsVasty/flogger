@@ -1,20 +1,25 @@
 import { useParams } from "react-router-dom";
-import { BlogPost } from "../../models";
 import Post from "../Post";
 
-export default function PostsPage({ posts }: { posts: BlogPost[] }) {
+export default function PostsPage({ posts }: { posts: any }) {
+    // console.log(posts)
     const { post_id } = useParams();
-    if (post_id){
-        posts = posts.filter((post : BlogPost) => post_id === post.id)
-    }
 
     return (
         <div>
-            {posts.map((post : BlogPost) => (
-                <div key={post.id}>
-                    <Post post={post}/>
-                </div>
-            ))}
+            {post_id ? (
+                Object.keys(posts).filter((id : string) => 
+                    post_id === id
+                ).map((id : string) => (
+                    <Post post={posts[id]} key={id}/>
+                ))
+
+                ) : (
+                    Object.keys(posts).map((id : string) => (
+                        <Post post={posts[id]} key={id}/>
+                    ))
+                )
+            }
         </div>
     )
 }

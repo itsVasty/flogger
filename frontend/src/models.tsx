@@ -3,4 +3,6 @@ export interface BlogPost {
     title: string
     description: string | undefined
     content: string
+    owner: null
+    digs: number
 }
