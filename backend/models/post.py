@@ -8,4 +8,5 @@ class BlogPost(BaseModel):
     title: str
     description: str | None = None
     content: str
+    digs: int = 0
     owner: User | None = None
