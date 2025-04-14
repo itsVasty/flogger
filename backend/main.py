@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from models import BlogPost, User
+from models import BlogPost, User, Comment
 
 app = FastAPI()
 
@@ -25,17 +25,18 @@ blog_post = BlogPost(
     title="What is Flogger?",
     description="An open-source microblog",
     content="Flogger is an open source microblog built in python and react.",
-    owner=flogger_admin
+    owner=flogger_admin,
+    comments=[
+        Comment(
+            id='flogger',
+            owner=flogger_admin,
+            content='Flogger allows you to comment on posts :)'
+        )
+    ]
 )
 
 post_db = {
-    "flogger": BlogPost(
-        id='flogger',
-        title="What is Flogger?",
-        description="An open-source microblog",
-        content="Flogger is an open source microblog built in python and react.",
-        owner=flogger_admin
-    ),
+    "flogger": blog_post,
     "todo-post-1": BlogPost(
         id='todo-post-1',
         title="Flogger Todo Post 1",
