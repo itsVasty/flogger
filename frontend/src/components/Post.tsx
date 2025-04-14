@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { BlogPost } from '../models.tsx';
 import './styles.css'
 
 const Post = ({ post }: { post: BlogPost }) => {
-    console.log(post.id)
+    const [post_, setPost] = useState(post)
+
     const dig = (post : BlogPost) => {
         post.digs += 1;
         // const data : JSON = JSON.parse(`{"${post.id}" : "${JSON.stringify(post)}"}`)
@@ -13,15 +15,15 @@ const Post = ({ post }: { post: BlogPost }) => {
             headers: {"Content-Type": "application/json"}
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(post => setPost(post))
         .catch(err => console.log(err));
     }
     return (
         <>
-            <h2>{post.title}</h2>
-            <h5>{post.description}</h5>
-            <p>{post.content}</p>
-            <span onClick={() => dig(post)}>digs: {post.digs}</span>
+            <h2>{post_.title}</h2>
+            <h5>{post_.description}</h5>
+            <p>{post_.content}</p>
+            <span onClick={() => dig(post_)}>digs: {post_.digs}</span>
         </>
     )
 }
