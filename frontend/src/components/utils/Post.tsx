@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { BlogPost, Comment } from '../models.tsx';
-import './styles.css'
+import { BlogPost, Comment } from '../../models.tsx';
+import '../styles.css'
 
 const Post = ({ post }: { post: BlogPost }) => {
     const [post_, setPost] = useState(post)

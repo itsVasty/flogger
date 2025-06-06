@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Post from "../Post";
+import Post from "../utils/Post";
 
 export default function HomePage(){
     const [intro, setIntro] = useState(null);

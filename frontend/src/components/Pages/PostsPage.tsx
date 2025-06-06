@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Post from "../Post";
+import Post from "../utils/Post";
 
 export default function PostsPage({ posts }: { posts: any }) {
     // console.log(posts)

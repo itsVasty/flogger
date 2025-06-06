@@ -21,7 +21,7 @@ flogger_admin = User(
     name='Flogger Admin'
 )
 
-blog_post = BlogPost(
+flogger_post = BlogPost(
     id='flogger',
     title="What is Flogger?",
     description="An open-source microblog",
@@ -37,22 +37,10 @@ blog_post = BlogPost(
 )
 
 post_db = {
-    "flogger": blog_post,
+    "flogger": flogger_post,
     "todo-post-1": BlogPost(
         id='todo-post-1',
         title="Flogger Todo Post 1",
-        description="An Example Flogger Post ",
-        content="This is an example of what a Flogger Post would look like."
-    ),
-    "todo-post-2": BlogPost(
-        id='todo-post-2',
-        title="Flogger Todo Post 2",
-        description="An Example Flogger Post ",
-        content="This is an example of what a Flogger Post would look like."
-    ),
-    "todo-post-3": BlogPost(
-        id='todo-post-3',
-        title="Flogger Todo Post 3",
         description="An Example Flogger Post ",
         content="This is an example of what a Flogger Post would look like."
     ),
@@ -72,7 +60,10 @@ async def flogger():
 
 @app.get('/posts')
 async def get_all_posts():
-    return {"posts": post_db}
+    print(post_db["flogger"])
+    posts = post_db.copy()
+    del posts["flogger"]
+    return {"posts": posts}
 
 @app.get('/posts/{post_id}')
 async def get_post(post_id):
