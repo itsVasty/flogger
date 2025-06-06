@@ -15,6 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 flogger_admin = User(
     id='flogger-admin',
     name='Flogger Admin'
