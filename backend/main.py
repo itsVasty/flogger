@@ -71,7 +71,7 @@ async def get_post(post_id):
 
 @app.post('/posts/')
 async def create_post(post : BlogPost):
-    post_db.append(post)
+    post_db[post.id] = post
     return post
 
 @app.put("/posts/{post_id}", response_model=BlogPost)

@@ -24,5 +24,4 @@ services:
     volumes:
       - ./frontend:/app
     depends_on:
-      backend:
-        condition: service_healthy
+      - backend
