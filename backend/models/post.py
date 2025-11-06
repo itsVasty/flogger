@@ -10,5 +10,6 @@ class BlogPost(BaseModel):
     description: str | None = None
     content: str
     digs: int = 0
+    buries: int = 0
     owner: User | None = None
     comments: list[Comment] | None = None

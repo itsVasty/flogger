@@ -5,6 +5,7 @@ export interface BlogPost {
     content: string
     owner: User | null
     digs: number
+    buries: number
     comments: Comment[] | undefined
 }
 
@@ -12,6 +13,7 @@ export interface Comment {
     id: string
     owner: User
     content: string
+    buries: number
     digs: number
 }
 

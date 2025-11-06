@@ -6,3 +6,4 @@ class Comment(BaseModel):
     owner: User
     content: str
     digs: int = 0
+    buries: int = 0

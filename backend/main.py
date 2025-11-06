@@ -44,6 +44,12 @@ post_db = {
         description="An Example Flogger Post ",
         content="This is an example of what a Flogger Post would look like."
     ),
+     "todo-post-2": BlogPost(
+        id='todo-post-1',
+        title="Flogger Todo Post 2",
+        description="An Example Flogger Post ",
+        content="This is an example of what a Flogger Post would look like. But this time, it's the second post!"
+    ),
 }
 
 @app.get("/health")
